@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "caze-tools"
+version = "0.1.0"
+authors = [
+  { name="Daniel Caze", email="seu_email@exemplo.com" }, # Opcional, mas boa prática
+]
+description = "Command-line dev tools by Daniel Caze (dsscaze)"
+readme = "README.md" # Assumindo que você tem um README.md
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License", # Escolha sua licença
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "click",
+]
+
+[project.urls]
+Homepage = "https://github.com/dsscaze/caze-tools" # Opcional: URL do seu projeto
+Issues = "https://github.com/dsscaze/caze-tools/issues" # Opcional
+
+[project.scripts]
+caze-tools = "caze_tools.cli:main"
+cz = "caze_tools.cli:main"

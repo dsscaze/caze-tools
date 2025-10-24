@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# IDE and Editor specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Test files
+.pytest_cache/
+.coverage
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS specific
+.DS_Store
+
+# caze-tools specific output files (example)
+# Adicione aqui padrões de arquivos gerados pela sua ferramenta que você não quer versionar
+*.md.bak
+context.txt
+project_structure.md
