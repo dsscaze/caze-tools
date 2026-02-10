@@ -8,7 +8,7 @@ Este documento explica como publicar o `caze-tools` no PyPI para que ele fique d
 2. **Conta no TestPyPI** (opcional, mas recomendado): [https://test.pypi.org/account/register/](https://test.pypi.org/account/register/)
 3. **Ferramentas de build instaladas**:
    ```bash
-   pip install --upgrade build twine
+   py -m pip install --upgrade build twine
    ```
 
 ## Passo a Passo
@@ -62,7 +62,7 @@ Remove-Item -Recurse -Force dist, build, *.egg-info -ErrorAction SilentlyContinu
 ### 4. Criar o Pacote de Distribuição
 
 ```bash
-python -m build
+py -m build
 ```
 
 Isso criará dois arquivos na pasta `dist/`:
@@ -74,7 +74,7 @@ Isso criará dois arquivos na pasta `dist/`:
 Antes de publicar no PyPI oficial, teste no TestPyPI:
 
 ```bash
-python -m twine upload --repository testpypi dist/*
+py -m twine upload --repository testpypi dist/*
 ```
 
 Você será solicitado a:
@@ -92,7 +92,7 @@ pip install --index-url https://test.pypi.org/simple/ caze-tools
 Quando estiver tudo funcionando:
 
 ```bash
-python -m twine upload dist/*
+py -m twine upload dist/*
 ```
 
 Você será solicitado a:
@@ -201,16 +201,16 @@ Adicione o token como secret no GitHub:
 
 ```bash
 # Verificar o pacote antes de enviar
-twine check dist/*
+py -m twine check dist/*
 
 # Ver informações do pacote wheel
-python -m wheel metadata dist/caze_tools-*.whl
+py -m wheel metadata dist/caze_tools-*.whl
 
 # Instalar localmente para testar
-pip install dist/caze_tools-*.whl
+py -m pip install dist/caze_tools-*.whl
 
 # Desinstalar
-pip uninstall caze-tools
+py -m pip uninstall caze-tools
 ```
 
 ## Solução de Problemas
@@ -224,7 +224,7 @@ O PyPI não permite sobrescrever versões. Você deve:
 ### Erro de autenticação
 - Verifique se seu username é `__token__` (ao usar token de API)
 - Verifique se o token está correto e não expirou
-- Tente usar `--verbose` para mais detalhes: `twine upload --verbose dist/*`
+- Tente usar `--verbose` para mais detalhes: `py -m twine upload --verbose dist/*`
 
 ### README não renderiza corretamente
 - Certifique-se de que `readme = "README.md"` está no `pyproject.toml`

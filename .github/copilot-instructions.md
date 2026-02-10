@@ -1,5 +1,6 @@
 Before responding to any request:
 
+- my python shortcurt is "py" and not "python"
 - Treat all rules in that file as mandatory
 - Do NOT create documentation unless explicitly requested
 - Do NOT create more than one markdown document per request

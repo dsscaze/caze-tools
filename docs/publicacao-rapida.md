@@ -6,7 +6,7 @@ Guia rápido para publicar uma nova versão do `caze-tools` no PyPI.
 
 ```bash
 # Instalar ferramentas
-pip install --upgrade build twine
+py -m pip install --upgrade build twine
 
 # Criar conta em https://pypi.org/account/register/
 # Criar token de API em https://pypi.org/manage/account/token/
@@ -37,13 +37,13 @@ git push origin main --tags
 Remove-Item -Recurse -Force dist, build, *.egg-info -ErrorAction SilentlyContinue
 
 # Criar pacote
-python -m build
+py -m build
 
 # Verificar pacote
-twine check dist/*
+py -m twine check dist/*
 
 # Enviar para PyPI
-twine upload dist/*
+py -m twine upload dist/*
 ```
 
 Quando solicitado:

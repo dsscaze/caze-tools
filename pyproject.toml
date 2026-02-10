@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "caze-tools"
-version = "0.2.0"
+version = "0.2.2"
 authors = [
   { name="Daniel Caze", email="seu_email@exemplo.com" }, # Opcional, mas boa prática
 ]
@@ -26,4 +26,4 @@ Issues = "https://github.com/dsscaze/caze-tools/issues" # Opcional
 
 [project.scripts]
 caze-tools = "caze_tools.cli:main"
-cz = "caze_tools.cli:main"
+czt = "caze_tools.cli:main"

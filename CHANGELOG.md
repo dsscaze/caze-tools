@@ -5,6 +5,18 @@ Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+## [0.2.2] - 2026-02-09
+
+### Corrigido
+- Adicionado arquivos `__init__.py` faltantes nas pastas `caze_tools` e `caze_tools/commands`
+- Pacote agora instala corretamente e pode ser importado
+
+## [0.2.1] - 2026-02-09
+
+### Corrigido
+- Alias do comando principal revertido de `cz` para `czt`
+- Documentação atualizada com o alias correto
+
 ## [0.2.0] - 2026-02-09
 
 ### Adicionado
