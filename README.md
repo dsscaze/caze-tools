@@ -9,13 +9,19 @@ Uma coleção de ferramentas de linha de comando (CLI) para auxiliar em tarefas 
 
 ## Instalação
 
-Você pode instalar o `caze-tools` diretamente do PyPI (quando publicado) ou do repositório Git.
+### Via PyPI (Recomendado)
+
+Após a publicação no PyPI, você poderá instalar diretamente:
 
 ```bash
-# Para instalar a versão estável (ainda não disponível)
-# pip install caze-tools
+pip install caze-tools
+```
 
-# Para instalar para desenvolvimento a partir do código-fonte
+### A partir do código-fonte
+
+Para desenvolvimento ou versão mais recente:
+
+```bash
 git clone https://github.com/dsscaze/caze-tools.git
 cd caze-tools
 pip install -e .
@@ -82,9 +88,101 @@ cz merge <diretorio_origem> <arquivo_saida> [opções]
   cz merge src tests_merged.txt --name "test_*.py"
   ```
 
+### `cz addprefix`
+
+Adiciona um prefixo a todos os arquivos de uma pasta (recursivamente).
+
+**Uso:**
+```bash
+cz addprefix <pasta> <prefixo> [--dry-run]
+```
+
+**Exemplos:**
+
+- Adicionar prefixo "old_" a todos os arquivos:
+  ```bash
+  cz addprefix ./minha-pasta old_
+  ```
+
+- Simular sem fazer alterações reais:
+  ```bash
+  cz addprefix ./minha-pasta new_ --dry-run
+  ```
+
+### `cz rename`
+
+Renomeia arquivos substituindo um prefixo por outro (recursivamente).
+
+**Uso:**
+```bash
+cz rename <pasta> <prefixo_antigo> <novo_prefixo> [--dry-run]
+```
+
+**Exemplos:**
+
+- Trocar prefixo "old_" por "new_":
+  ```bash
+  cz rename ./minha-pasta old_ new_
+  ```
+
+- Simular a operação antes de executar:
+  ```bash
+  cz rename ./minha-pasta test_ prod_ --dry-run
+  ```
+
+### `cz toroot`
+
+Move todos os arquivos de subpastas para a pasta raiz, mantendo nomes únicos.
+
+**Uso:**
+```bash
+cz toroot <pasta> [--dry-run]
+```
+
+**Exemplos:**
+
+- Mover todos os arquivos para a raiz:
+  ```bash
+  cz toroot ./minha-pasta
+  ```
+
+- Simular a operação:
+  ```bash
+  cz toroot ./minha-pasta --dry-run
+  ```
+
+### `cz trimimg`
+
+Remove transparências desnecessárias de imagens PNG, reduzindo o tamanho do arquivo.
+
+**Uso:**
+```bash
+cz trimimg <pasta> [--padding N] [--threshold N] [--dry-run]
+```
+
+**Opções:**
+- `--padding`: Pixels de margem a manter (padrão: 0)
+- `--threshold`: Nível de transparência mínimo (0-255, padrão: 10)
+
+**Exemplos:**
+
+- Processar todas as PNGs com padding de 5px:
+  ```bash
+  cz trimimg ./imagens --padding 5
+  ```
+
+- Simular processamento:
+  ```bash
+  cz trimimg ./imagens --dry-run
+  ```
+
 ## Contribuição
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma *issue* para relatar bugs ou sugerir novas funcionalidades.
+
+## Publicação
+
+Se você é mantenedor e deseja publicar uma nova versão no PyPI, consulte o [Guia de Publicação](docs/publicacao-pypi.md).
 
 ## Licença
 

@@ -10,7 +10,7 @@ setup(
     entry_points={
         "console_scripts": [
             "caze-tools=caze_tools.cli:main",   # comando global: caze-tools
-            "czt=caze_tools.cli:main"
+            "cz=caze_tools.cli:main"            # alias curto: cz
         ],
     },
     python_requires=">=3.8",
