@@ -5,6 +5,22 @@ Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+## [0.3.0] - 2026-02-15
+
+### Alterado
+- **BREAKING CHANGE**: `czt merge` agora recebe apenas o arquivo de saída como argumento obrigatório
+  - Diretório de origem agora é opcional via `-s, --source` (padrão: diretório atual)
+  - Sintaxe antiga: `czt merge <dir> <output>`
+  - Sintaxe nova: `czt merge <output> [--source <dir>]`
+- **BREAKING CHANGE**: `czt ls-struct` agora usa opção para especificar o diretório
+  - Diretório agora é opcional via `-p, --path` (padrão: diretório atual)
+  - Sintaxe antiga: `czt ls-struct [dir]`
+  - Sintaxe nova: `czt ls-struct [--path <dir>]`
+
+### Corrigido
+- Corrigido problema onde argumentos com default eram interpretados incorretamente pelo Click
+- Comandos agora funcionam corretamente quando executados sem especificar o diretório
+
 ## [0.2.2] - 2026-02-09
 
 ### Corrigido

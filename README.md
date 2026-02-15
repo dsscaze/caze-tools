@@ -57,15 +57,30 @@ Faz o inverso do `mkstruct`: lê uma estrutura de diretórios existente e gera u
 
 **Uso:**
 ```bash
-# Imprime a estrutura do diretório atual no console
-czt ls-struct
-
-# Salva a estrutura em um arquivo
-czt ls-struct -o project_tree.md
-
-# Gera a estrutura de outra pasta
-czt ls-struct ../outro-projeto
+czt ls-struct [opções]
 ```
+
+**Opções:**
+- `-p, --path <diretório>`: Diretório a analisar (padrão: diretório atual)
+- `-o, --output <arquivo>`: Salvar resultado em arquivo
+- `--ignore <padrão>`: Ignorar arquivos/pastas (pode usar múltiplas vezes)
+
+**Exemplos:**
+
+- Listar estrutura do diretório atual:
+  ```bash
+  czt ls-struct
+  ```
+
+- Salvar estrutura em arquivo:
+  ```bash
+  czt ls-struct -o project_tree.md
+  ```
+
+- Gerar estrutura de outra pasta:
+  ```bash
+  czt ls-struct --path ../outro-projeto -o estrutura.md
+  ```
 
 ### `czt merge`
 
@@ -73,19 +88,32 @@ Mescla múltiplos arquivos de um diretório em um único arquivo de saída. Extr
 
 **Uso:**
 ```bash
-czt merge <diretorio_origem> <arquivo_saida> [opções]
+czt merge <arquivo_saida> [opções]
 ```
+
+**Opções:**
+- `-s, --source <pasta>`: Diretório de origem (padrão: diretório atual)
+- `-e, --ext <extensão>`: Filtrar por extensão (pode usar múltiplas vezes)
+- `-n, --name <padrão>`: Filtrar por padrão de nome (pode usar múltiplas vezes)
+- `--no-recursive`: Não processar subdiretórios
+- `--ignore <padrão>`: Ignorar arquivos/pastas
+- `-y, --yes`: Pular confirmação
 
 **Exemplos:**
 
-- Mesclar todos os arquivos `.py` e `.js` em `context.txt`:
+- Mesclar todos os arquivos do diretório atual:
   ```bash
-  czt merge . context.txt --ext py --ext js
+  czt merge context.txt
   ```
 
-- Mesclar todos os arquivos de teste do diretório `src`:
+- Mesclar apenas arquivos `.py` e `.js`:
   ```bash
-  czt merge src tests_merged.txt --name "test_*.py"
+  czt merge context.txt -e py -e js
+  ```
+
+- Mesclar arquivos de uma pasta específica:
+  ```bash
+  czt merge output.txt --source src -n "test_*.py"
   ```
 
 ### `czt addprefix`

@@ -75,10 +75,11 @@ def run(root_path=".", output_file=None, ignore_patterns=None):
             output_stream.close()
 
 @click.command("ls-struct")
-@click.argument(
-    "root_path",
+@click.option(
+    "-p", "--path", "root_path",
     type=click.Path(exists=True, file_okay=False, dir_okay=True, readable=True),
-    default="."
+    default=".",
+    help="Diretório a analisar (padrão: diretório atual)."
 )
 @click.option(
     "-o", "--output",

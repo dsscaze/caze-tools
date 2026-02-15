@@ -87,27 +87,31 @@ def run(source_dir, output_file, extensions, names, recursive, limit, force, ign
         click.secho(f"Erro ao escrever no arquivo de saída: {e}", fg="red")
 
 @click.command("merge")
-@click.argument("source_dir", type=click.Path(exists=True, file_okay=False, dir_okay=True, readable=True), default=".")
 @click.argument("output_file", type=click.Path(dir_okay=False, writable=True))
+@click.option("-s", "--source", "source_dir", type=click.Path(exists=True, file_okay=False, dir_okay=True, readable=True), default=".", help="Diretório de origem (padrão: diretório atual).")
 @click.option("-e", "--ext", multiple=True, help="Extensão do arquivo para incluir (ex: .py). Pode ser usado várias vezes.")
 @click.option("-n", "--name", multiple=True, help="Padrão de nome de arquivo para incluir (ex: 'test_*.py'). Pode ser usado várias vezes.")
 @click.option("--ignore", multiple=True, help="Nome de diretório ou arquivo a ignorar.")
 @click.option("--no-recursive", is_flag=True, default=False, help="Não busca em subdiretórios.")
 @click.option("--limit", type=int, default=100, help="Limite de arquivos antes de pedir confirmação.")
 @click.option("-y", "--yes", is_flag=True, default=False, help="Pula a confirmação de segurança (force).")
-def merge_command(source_dir, output_file, ext, name, no_recursive, limit, yes, ignore):
+def merge_command(output_file, source_dir, ext, name, no_recursive, limit, yes, ignore):
     """
     Mescla múltiplos arquivos de um diretório em um único arquivo de saída.
     
     Exemplos:
     
-    - Mesclar todos os arquivos .py e .md do diretório atual em 'context.txt':
+    - Mesclar todos os arquivos do diretório atual em 'context.txt':
     
-      caze-tools merge . context.txt -e .py -e .md
+      czt merge context.txt
       
-    - Mesclar todos os arquivos de teste do diretório 'src' em 'tests.txt':
+    - Mesclar todos os arquivos .py e .md em 'context.txt':
     
-      caze-tools merge src tests.txt -n "test_*.py"
+      czt merge context.txt -e .py -e .md
+      
+    - Mesclar arquivos de 'src' em 'tests.txt':
+    
+      czt merge tests.txt --source src -n "test_*.py"
     """
     run(
         source_dir=source_dir,
