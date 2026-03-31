@@ -5,7 +5,7 @@ Uma coleção de ferramentas de linha de comando (CLI) para auxiliar em tarefas 
 
 ## O que é?
 
-`caze-tools` (ou simplesmente `cz`) é uma CLI projetada para automatizar e simplificar rotinas de desenvolvimento, como criar estruturas de projetos, gerar representações de diretórios e mesclar arquivos de código-fonte.
+`caze-tools` (ou simplesmente `czt`) é uma CLI projetada para automatizar e simplificar rotinas de desenvolvimento, como criar estruturas de projetos, gerar representações de diretórios e mesclar arquivos de código-fonte.
 
 ## Instalação
 
