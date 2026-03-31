@@ -204,6 +204,44 @@ czt trimimg <pasta> [--padding N] [--threshold N] [--dry-run]
   czt trimimg ./imagens --dry-run
   ```
 
+### `czt extractlog`
+
+Extrai valores de linhas de log que contenham uma chave no formato `chave: valor`.
+
+Por padrão, salva todos os valores extraídos em um novo arquivo. Use `--contar` para contar ocorrências ou `--distintos` para listar valores únicos.
+
+**Uso:**
+```bash
+czt extractlog <arquivo> <chave> [opções]
+```
+
+**Opções:**
+- `--contar`: Conta o total de ocorrências da chave
+- `--distintos`: Lista e conta os valores distintos encontrados
+- `--saida <arquivo>`: Caminho do arquivo de saída (padrão: `<arquivo>_<chave>.txt`)
+
+**Exemplos:**
+
+- Extrair todos os valores de `codigoMunicipio` para um arquivo:
+  ```bash
+  czt extractlog app.log codigoMunicipio
+  ```
+
+- Contar quantas vezes a chave aparece:
+  ```bash
+  czt extractlog app.log codigoMunicipio --contar
+  ```
+
+- Listar valores únicos encontrados:
+  ```bash
+  czt extractlog app.log codigoMunicipio --distintos
+  ```
+
+- Salvar resultado em arquivo específico:
+  ```bash
+  czt extractlog app.log codigoMunicipio --saida municipios.txt
+  ```
+
 ## Contribuição
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma *issue* para relatar bugs ou sugerir novas funcionalidades.

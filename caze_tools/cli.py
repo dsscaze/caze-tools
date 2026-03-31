@@ -6,6 +6,7 @@ from caze_tools.commands.addprefix import addprefix
 from caze_tools.commands.toroot import toroot
 from caze_tools.commands.rename import rename
 from caze_tools.commands.trimimg import trimimg
+from caze_tools.commands.extractlog import extractlog
 
 @click.group(no_args_is_help=True)
 def main():
@@ -19,6 +20,7 @@ main.add_command(addprefix)
 main.add_command(toroot)
 main.add_command(rename)
 main.add_command(trimimg)
+main.add_command(extractlog)
 
 if __name__ == "__main__":
     main()

@@ -5,6 +5,11 @@ Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+## [0.3.1] - 2026-03-31
+
+### Adicionado
+- Novo comando `extractlog`: extrai valores de linhas de log pelo padrão `chave: valor`, com opções para contar ocorrências ou listar valores distintos
+
 ## [0.3.0] - 2026-02-15
 
 ### Alterado
