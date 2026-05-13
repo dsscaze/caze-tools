@@ -1,3 +1,4 @@
+import fnmatch
 import os
 import sys
 import click
@@ -23,8 +24,13 @@ def generate_tree_lines(root_path, prefix="", ignore_patterns=None):
         ignore_patterns = DEFAULT_IGNORE
 
     # Lista o conteúdo, ignorando os padrões
+    norm_patterns = [p.lstrip('/\\') for p in ignore_patterns]
+
     try:
-        items = [item for item in os.listdir(root_path) if item not in ignore_patterns]
+        items = [
+            item for item in os.listdir(root_path)
+            if not any(fnmatch.fnmatch(item, pat) for pat in norm_patterns)
+        ]
     except FileNotFoundError:
         return
 
